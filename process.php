@@ -43,6 +43,8 @@ function add_employee($empleados){
     // Recupero los datos
     $campos = [];
     $legajo = isset($_POST['legajo']) ? strtoupper($_POST['legajo']) : "";
+    $img_profile = 
+
     $first_name = isset($_POST['first_name']) ? ucwords($_POST['first_name']) : "";
     $last_name = isset($_POST['last_name']) ? ucwords($_POST['last_name']) : "";
     $email = isset($_POST['email']) ? strtolower($_POST['email']) : "";
@@ -110,7 +112,6 @@ function search($keywords, $empleados) {
         $search_fn = array_keys($first_name, $keyword);
         $search_ln = array_keys($last_name,$keyword);
         if (count($search_fn) != 0) {
-            //array_push($search_id, $search_fn);
             $search_id = array_merge($search_id, $search_fn);
         }
         if (count($search_ln) != 0) {
@@ -127,4 +128,20 @@ function return_index() {
 function save_empleados($empleados) {
     unset($_SESSION['empleados']);
     $_SESSION['empleados'] = $empleados;
+}
+
+if ($_FILES["img_profile"]["error"] == UPLOAD_ERR_OK) {
+    $directorio = '/uploads';
+    $nombre_tmp = $_FILES["img_profile"]["tmp_name"];
+    $nombreArchivo = $directorio . basename($_FILES["img_profile"]["name"]);
+    $tipoArchivo = strtolower(pathinfo($nombreArchivo, PATHINFO_EXTENSION));
+    if($tipoArchivo === "jpg" || $tipoArchivo === "png") {
+        if(move_uploaded_file($nombre_tmp, $nombreArchivo)) {
+            echo "La carga se realizo con exito";
+        }else {
+            echo 'Hubo un error en la subida del archivo';
+        }
+    }else {
+        echo 'Solo se admiten archivos jpg o png';
+    }
 }

@@ -42,6 +42,7 @@
                                         <input type="text" class="form-control" id="legajo" name="legajo" tabindex="1" />
                                     </div>
                                     <div class="form-group offset-1 col-md-6">
+                                        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                                         <label for="img_profile" class="col-form-label">Imagen</label>
                                         <input type="file" class="form-control" id="img_profile" name="img_profile" />
                                     </div>
