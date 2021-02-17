@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header Main Container -->
-  <div class="header-main">
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-md-4">
-          <div class="logo">
-            <a href=""><img src="images/logo.png" alt="Globant"></a>
-          </div>
+    <!-- Header Main Container -->
+    <div class="header-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <div class="logo">
+                    <a href="index.php""><img src="images/logo.png" alt="Globant"></a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-8">
+                    <nav>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div class="col-6 col-md-8">
-          <nav>
-          </nav>
-        </div>
-      </div>
     </div>
-  </div>
 </header>
 <div class="container">
     <div class="row">
@@ -34,12 +34,16 @@
                 <div class="card-body">
                     <div class="row mt-5">
                         <div class="col-12 col-md-10 offset-md-1">
-                            <form method="post" name="add_employee" action="process.php">
+                            <form method="post" name="add_employee" action="process.php" enctype="multipart/form-data">
                                 <input type="hidden" name="action" value="add">
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
-                                        <label for="dni" class="col-form-label">Legajo</label>
+                                        <label for="legajo" class="col-form-label">Legajo</label>
                                         <input type="text" class="form-control" id="legajo" name="legajo" tabindex="1" />
+                                    </div>
+                                    <div class="form-group offset-1 col-md-6">
+                                        <label for="img_profile" class="col-form-label">Imagen</label>
+                                        <input type="file" class="form-control" id="img_profile" name="img_profile" />
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -81,7 +85,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-sm-12 text-right">
-                                        <a href="table.html"><input type="submit" id='btn_cancel' class='btn btn-danger btn-md' value="Cancelar" /></a>
+                                        <a href="index.php"><input type="button" id='btn_cancel' class='btn btn-danger btn-md' value="Cancelar" /></a> <!-- Cambie el href y el tipo -->
                                         <input type="submit" id='btn_add' class='btn btn-success btn-md' value="Enviar" />
                                     </div>
                                 </div>

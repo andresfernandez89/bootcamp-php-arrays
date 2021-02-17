@@ -45,7 +45,14 @@ if(!$_SESSION['empleados']) {
             <div class="card">
                 <div class="card-body">
                     <div class="row mt-5">
-                        <div class="col-6 offset-6 text-right">
+                        <div class="form-group col-6 text-left">
+                        <form action="process.php" name="search" method="get">
+                            <input type="hidden" name="action" value="search">
+                            <input type="text" class="form-control" name="keywords" placeholder="Ingrese las palabras clave (Nombre - Apellido)">
+                            <input type="submit" class="btn btn-success mt-1" value="Buscar">
+                        </form>
+                        </div>
+                        <div class="col-6 text-right">
                             <a class="btn btn-info" href="add_form.php">Agregar</a>
                         </div>
                     </div>
@@ -54,6 +61,7 @@ if(!$_SESSION['empleados']) {
                             <table class="table table-hover">
                                 <thead class="thead-dark">
                                   <tr>
+                                    <th>Foto</th>
                                     <th>Legajo</th>
                                     <th>Nombre y Apellido</th>
                                     <th>Dirección</th>
@@ -68,6 +76,7 @@ if(!$_SESSION['empleados']) {
                                     foreach ($empleados as $key => $empleado) {
                                     ?>
                                     <tr>
+                                        <td><img id="img_user" src="<?=$empleado['imagen']?>"></td>
                                         <td><?=$empleado['legajo']?></td>
                                         <td><?=$empleado['first_name'] . ' ' . $empleado['last_name']?></td>
                                         <td><?=$empleado['address']?></td>
@@ -75,7 +84,7 @@ if(!$_SESSION['empleados']) {
                                         <td><?=$empleado['salary']?></td>
                                         <td><?=$empleado['rol']?></td>
                                         <td>
-                                            <a href="process.php?action=edit&id=<?=$key?>">Editar</a>
+                                            <a href="edit_form.php?action=edit&id=<?=$key?>">Editar</a>
                                             <a href="process.php?action=del&id=<?=$key?>">Eliminar</a>
                                         </td>
                                     </tr>

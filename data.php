@@ -3,6 +3,7 @@
 $empleados = [
     0 =>   [
             "legajo" => "ZLJ844",
+            "img_profile" => "",
             "first_name" => "Mariana",
             "last_name" => "Alderson",
             "address" => "Ciancheta 4332 6 E",
@@ -13,6 +14,7 @@ $empleados = [
     1 =>
     [
       "legajo" => "OFU550",
+      "img_profile" => "",
       "first_name" => "Federico",
       "last_name" => "Migueletes",
       "address" => "Juan F Czetz 973",
@@ -23,6 +25,7 @@ $empleados = [
     2 =>
     [
       "legajo" => "MRX619",
+      "img_profile" => "",
       "first_name" => "Pedro",
       "last_name" => "Blanco",
       "address" => "Juan de Ayolas 8647",
@@ -33,6 +36,7 @@ $empleados = [
     3 =>
     [
       "legajo" => "IQR350",
+      "img_profile" => "",
       "first_name" => "Melanie",
       "last_name" => "Baigorria",
       "address" => "Independencia 7096",
@@ -43,6 +47,7 @@ $empleados = [
     4 =>
     [
       "legajo" => "TOP558",
+      "img_profile" => "",
       "first_name" => "Pedro",
       "last_name" => "Fino",
       "address" => "Chubut 5187 10 E",
@@ -53,6 +58,7 @@ $empleados = [
     5 =>
     [
       "legajo" => "ROW656",
+      "img_profile" => "",
       "first_name" => "Oriana",
       "last_name" => "Distefano",
       "address" => "Aragon 1611",
@@ -63,6 +69,7 @@ $empleados = [
     6 =>
     [
       "legajo" => "ONO662",
+      "img_profile" => "",
       "first_name" => "Lujan",
       "last_name" => "Narin",
       "address" => "Gral O Higgins 7669",
@@ -73,6 +80,7 @@ $empleados = [
     7 =>
     [
       "legajo" => "POV921",
+      "img_profile" => "",
       "first_name" => "Nicolás",
       "last_name" => "Rial",
       "address" => "12 de Octubre 4056",
@@ -83,6 +91,7 @@ $empleados = [
     8 =>
     [
       "legajo" => "UAI301",
+      "img_profile" => "",
       "first_name" => "Celeste",
       "last_name" => "Sanchez",
       "address" => "Antonio Galeano 6547 1 E",
@@ -93,6 +102,7 @@ $empleados = [
     9 =>
     [
       "legajo" => "SXT526",
+      "img_profile" => "",
       "first_name" => "Mariana",
       "last_name" => "Oteiza",
       "address" => "Juan Nestor Guerra 2821",
@@ -103,6 +113,7 @@ $empleados = [
     10 =>
     [
       "legajo" => "RKH703",
+      "img_profile" => "",
       "first_name" => "Angela",
       "last_name" => "Casco",
       "address" => "Gral Jose Maria Piran 1777",
@@ -113,6 +124,7 @@ $empleados = [
     11 =>
     [
       "legajo" => "HDZ175",
+      "img_profile" => "",
       "first_name" => "Juan",
       "last_name" => "Moncada",
       "address" => "Grecia 9922",
@@ -123,6 +135,7 @@ $empleados = [
     12 =>
     [
       "legajo" => "ATG845",
+      "img_profile" => "",
       "first_name" => "Johana",
       "last_name" => "Fano",
       "address" => "Ciudad de Oneglia 9475 9 F",
@@ -133,6 +146,7 @@ $empleados = [
     13 =>
     [
       "legajo" => "RJE647",
+      "img_profile" => "",
       "first_name" => "Pedro",
       "last_name" => "Fino",
       "address" => "Juan Mariani 8487",
@@ -143,6 +157,7 @@ $empleados = [
     14 =>
     [
       "legajo" => "XQB663",
+      "img_profile" => "",
       "first_name" => "Jorge",
       "last_name" => "Hereu",
       "address" => "Gral Manuel N Savio 4072",
@@ -153,6 +168,7 @@ $empleados = [
     15 =>
     [
       "legajo" => "HZY426",
+      "img_profile" => "",
       "first_name" => "Maria",
       "last_name" => "Fernandez",
       "address" => "12 de Octubre 1657",
@@ -163,6 +179,7 @@ $empleados = [
     16 =>
     [
       "legajo" => "JXA271",
+      "img_profile" => "",
       "first_name" => "Juan",
       "last_name" => "Roque",
       "address" => "Dr Luis Agote 9191 8 F",
@@ -173,6 +190,7 @@ $empleados = [
     17 =>
     [
       "legajo" => "PRS754",
+      "img_profile" => "",
       "first_name" => "Milena",
       "last_name" => "Aldao",
       "address" => "Aragon 2001",
@@ -183,6 +201,7 @@ $empleados = [
     18 =>
     [
       "legajo" => "GNH678",
+      "img_profile" => "",
       "first_name" => "Valentin",
       "last_name" => "Hereu",
       "address" => "Avenida Dr Juan Hector Jara 4475",
@@ -193,6 +212,7 @@ $empleados = [
     19 =>
     [
       "legajo" => "LOQ592",
+      "img_profile" => "",
       "first_name" => "Adriana",
       "last_name" => "Bartorello",
       "address" => "Gral Juan Jose Viamonte 7573",
