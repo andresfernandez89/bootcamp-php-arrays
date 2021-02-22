@@ -1,8 +1,9 @@
 <?php
 session_start();
-$empleados = $_SESSION['empleados'];
-?>
+$empleados = isset($_SESSION['empleados'])? $_SESSION['empleados']: "";
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +16,22 @@ $empleados = $_SESSION['empleados'];
 </head>
 <body>
 <header>
-    <!-- Header Main Container -->
-    <div class="header-main">
-        <div class="container">
-        <div class="row">
-            <div class="col-6 col-md-4">
-            <div class="logo">
-                <a href="sesionOK.php"><img src="images/logo.png" alt="Globant"></a>
-            </div>
-            </div>
-            <div class="col-6 col-md-8">
-            <nav>
-            </nav>
-            </div>
+  <!-- Header Main Container -->
+  <div class="header-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <div class="logo">
+            <a href="sesionOK.php"><img src="images/logo.png" alt="Globant"></a>
+          </div>
         </div>
+        <div class="col-6 col-md-8">
+          <nav>
+          </nav>
         </div>
+      </div>
     </div>
+  </div>
 </header>
 <div class="container">
     <div class="row">
@@ -44,7 +45,6 @@ $empleados = $_SESSION['empleados'];
                             <input type="hidden" name="action" value="search">
                             <input type="text" class="form-control" name="keywords" placeholder="Ingrese las palabras clave (Nombre - Apellido)">
                             <input type="submit" class="btn btn-success mt-1" value="Buscar">
-                            <a href="sesionOK.php"><input type="button" id='btn_cancel' class='btn btn-danger btn-md mt-1' value="Volver" /></a>
                         </form>
                         </div>
                         <div class="col-6 text-right">
@@ -56,31 +56,31 @@ $empleados = $_SESSION['empleados'];
                             <table class="table table-hover">
                                 <thead class="thead-dark">
                                     <tr>
-                                    <th>Foto</th>
-                                    <th><a href="process.php?action=order&order=legajo">Legajo</a></th>
-                                    <th><a href="process.php?action=order&order=last_name">Nombre y Apellido</a></th>
-                                    <th><a href="process.php?action=order&order=address">Dirección</a></th>
-                                    <th><a href="process.php?action=order&order=email">Email</a></th>
-                                    <th><a href="process.php?action=order&order=salary">Sueldo</a></th>
-                                    <th><a href="process.php?action=order&order=rol">Rol</a></th>
+                                        <th>Foto</th>
+                                        <th><a href="process.php?action=order&order=legajo">Legajo</a></th>
+                                        <th><a href="process.php?action=order&order=last_name">Nombre y Apellido</a></th>
+                                        <th><a href="process.php?action=order&order=address">Dirección</a></th>
+                                        <th><a href="process.php?action=order&order=email">Email</a></th>
+                                        <th><a href="process.php?action=order&order=salary">Sueldo</a></th>
+                                        <th><a href="process.php?action=order&order=rol">Rol</a></th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $search_id = isset($_SESSION['search_id'])? $_SESSION['search_id']: "";
-                                    foreach ($search_id as $value) {
+                                    foreach ($empleados as $key => $empleado) {
                                     ?>
                                     <tr>
-                                        <td><img id="img_user" src="<?=$empleados[$value]['img_profile']?>"></td>
-                                        <td><?=$empleados[$value]['legajo']?></td>
-                                        <td><?=$empleados[$value]['first_name'] . ' ' . $empleados[$value]['last_name']?></td>
-                                        <td><?=$empleados[$value]['address']?></td>
-                                        <td><?=$empleados[$value]['email']?></td>
-                                        <td><?=$empleados[$value]['salary']?></td>
-                                        <td><?=$empleados[$value]['rol']?></td>
+                                        <td><img id="img_user" src="<?=$empleado['img_profile']?>"></td>
+                                        <td><?=$empleado['legajo']?></td>
+                                        <td><?=$empleado['first_name'] . ' ' . $empleado['last_name']?></td>
+                                        <td><?=$empleado['address']?></td>
+                                        <td><?=$empleado['email']?></td>
+                                        <td><?=$empleado['salary']?></td>
+                                        <td><?=$empleado['rol']?></td>
                                         <td>
-                                            <a href="edit_form.php?action=edit&id=<?=$value?>">Editar</a>
-                                            <a href="process.php?action=del&id=<?=$value?>">Eliminar</a>
+                                            <a href="edit_form.php?action=edit&id=<?=$key?>">Editar</a>
+                                            <a href="process.php?action=del&id=<?=$key?>">Eliminar</a>
                                         </td>
                                     </tr>
                                     <?php
@@ -95,6 +95,5 @@ $empleados = $_SESSION['empleados'];
         </div>
     </div>
 </div>
-
 </body>
 </html>

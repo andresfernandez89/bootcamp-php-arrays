@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-6 col-md-4">
                     <div class="logo">
-                    <a href="index.php""><img src="images/logo.png" alt="Globant"></a>
+                    <a href="sesionOK.php"><img src="images/logo.png" alt="Globant"></a>
                     </div>
                 </div>
                 <div class="col-6 col-md-8">
@@ -42,7 +42,7 @@
                                         <input type="text" class="form-control" id="legajo" name="legajo" tabindex="1" />
                                     </div>
                                     <div class="form-group offset-1 col-md-6">
-                                        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                        <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
                                         <label for="img_profile" class="col-form-label">Imagen</label>
                                         <input type="file" class="form-control" id="img_profile" name="img_profile" />
                                     </div>
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-sm-12 text-right">
-                                        <a href="index.php"><input type="button" id='btn_cancel' class='btn btn-danger btn-md' value="Cancelar" /></a> <!-- Cambie el href y el tipo -->
+                                        <a href="sesionOK.php"><input type="button" id='btn_cancel' class='btn btn-danger btn-md' value="Cancelar" /></a> <!-- Cambie el href y el tipo -->
                                         <input type="submit" id='btn_add' class='btn btn-success btn-md' value="Enviar" />
                                     </div>
                                 </div>

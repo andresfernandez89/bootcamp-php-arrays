@@ -1,6 +1,8 @@
 <?php
 session_start();
-$empleados = $_SESSION['empleados'];
+$empleados = isset($_SESSION['empleados'])? $_SESSION['empleados']: "";
+$empleado_id = isset($_GET['id'])? $_GET['id'] : "";
+$empleado = $empleados[$empleado_id];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ $empleados = $_SESSION['empleados'];
             <div class="row">
                 <div class="col-6 col-md-4">
                     <div class="logo">
-                        <a href="index.php""><img src="images/logo.png" alt="Globant"></a>
+                        <a href="sesionOK.php"><img src="images/logo.png" alt="Globant"></a>
                     </div>
                 </div>
                 <div class="col-6 col-md-8">
@@ -39,42 +41,50 @@ $empleados = $_SESSION['empleados'];
                 <div class="card-body">
                     <div class="row mt-5">
                         <div class="col-12 col-md-10 offset-md-1">
-                            <form method="post" name="edit_employee" action="process.php">
+                            <form method="post" name="edit_employee" action="process.php" enctype="multipart/form-data">
                                 <input type="hidden" name="action" value="edit">
-                                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+                                <input type="hidden" name="id" value="<?=$empleado_id?>">
                                 <div class="form-row">
                                     <div class="form-group col-md-2">
                                         <label for="legajo" class="col-form-label">Legajo</label>
-                                        <input type="text" class="form-control" id="legajo" name="legajo" tabindex="1" value="<?=$empleados[$_GET['id']]['legajo']?>" />
+                                        <input type="text" class="form-control" id="legajo" name="legajo" tabindex="1" value="<?=$empleado['legajo']?>" />
+                                    </div>
+                                    <div class="form-group offset-1 col-md-6">
+                                        <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+                                        <label for="img_profile" class="col-form-label">Imagen</label>
+                                        <input type="file" class="form-control" id="img_profile" name="img_profile" />
+                                    </div>
+                                    <div class="form-group offset-1 col-md-2">
+                                        <img id="img_user" src="<?=$empleado['img_profile']?>">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="first_name" class="col-form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="first_name" name="first_name" tabindex="2" value="<?=$empleados[$_GET['id']]['first_name']?>" required />
+                                        <input type="text" class="form-control" id="first_name" name="first_name" tabindex="2" value="<?=$empleado['first_name']?>" required />
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="last_name" class="col-form-label">Apellido</label>
-                                        <input type="text" class="form-control" id="last_name" name="last_name" tabindex="3" value="<?=$empleados[$_GET['id']]['last_name']?>" required />
+                                        <input type="text" class="form-control" id="last_name" name="last_name" tabindex="3" value="<?=$empleado['last_name']?>" required />
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="email" class="col-form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" tabindex="4"  value="<?=$empleados[$_GET['id']]['email']?>" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                                        <input type="email" class="form-control" id="email" name="email" tabindex="4"  value="<?=$empleado['email']?>" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="address" class="col-form-label">Dirección</label>
-                                        <input type="text" class="form-control" id="address" tabindex="6" name="address" value="<?=$empleados[$_GET['id']]['address']?>" required />
+                                        <input type="text" class="form-control" id="address" tabindex="6" name="address" value="<?=$empleado['address']?>" required />
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="salary" class="col-form-label">Sueldo</label>
-                                        <input type="number" class="form-control" id="salary" tabindex="8" name="salary" value="<?=$empleados[$_GET['id']]['salary']?>" required />
+                                        <input type="number" class="form-control" id="salary" tabindex="8" name="salary" value="<?=$empleado['salary']?>" required />
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="role" class="col-form-label">Role</label>
-                                        <select name="role" id="role" class="form-control" tabindex="9" value="<?=$empleados[$_GET['id']]['rol']?>" selected>
-                                            <option><?=$empleados[$_GET['id']]['rol']?></option>
+                                        <select name="role" id="role" class="form-control" tabindex="9" value="<?=$empleado['rol']?>" selected>
+                                            <option><?=$empleado['rol']?></option>
                                             <option>Programador</option>
                                             <option>Business Analyst</option>
                                             <option>QA</option>
@@ -87,7 +97,7 @@ $empleados = $_SESSION['empleados'];
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-sm-12 text-right">
-                                        <a href="index.php"><input type="button" id='btn_cancel' class='btn btn-danger btn-md' value="Cancelar" /></a> <!-- Cambie el href y el tipo -->
+                                        <a href="sesionOK.php"><input type="button" id='btn_cancel' class='btn btn-danger btn-md' value="Cancelar" /></a> <!-- Cambie el href y el tipo -->
                                         <input type="submit" id='btn_add' class='btn btn-success btn-md' value="Guardar" />
                                     </div>
                                 </div>

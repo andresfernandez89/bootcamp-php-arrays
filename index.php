@@ -1,12 +1,6 @@
 <?php
 session_start();
-
-if(!$_SESSION['empleados']) {
-    require_once('data.php');
-    $_SESSION['empleados'] = $empleados;
-} else {
-    $empleados = $_SESSION['empleados'];
-}
+session_destroy();
 
 ?>
 <!DOCTYPE html>
@@ -20,86 +14,60 @@ if(!$_SESSION['empleados']) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <!-- Header Main Container -->
-  <div class="header-main">
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-md-4">
-          <div class="logo">
-            <a href=""><img src="images/logo.png" alt="Globant"></a>
-          </div>
-        </div>
-        <div class="col-6 col-md-8">
-          <nav>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1>Listado de Empleados</h1>
-            <div class="card">
-                <div class="card-body">
-                    <div class="row mt-5">
-                        <div class="form-group col-6 text-left">
-                        <form action="process.php" name="search" method="get">
-                            <input type="hidden" name="action" value="search">
-                            <input type="text" class="form-control" name="keywords" placeholder="Ingrese las palabras clave (Nombre - Apellido)">
-                            <input type="submit" class="btn btn-success mt-1" value="Buscar">
-                        </form>
-                        </div>
-                        <div class="col-6 text-right">
-                            <a class="btn btn-info" href="add_form.php">Agregar</a>
+    <header>
+        <!-- Header Main Container -->
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-md-4">
+                        <div class="logo">
+                            <a href="sesionOK.php"><img src="images/logo.png" alt="Globant"></a>
                         </div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-12">
-                            <table class="table table-hover">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th>Foto</th>
-                                    <th>Legajo</th>
-                                    <th>Nombre y Apellido</th>
-                                    <th>Dirección</th>
-                                    <th>Email</th>
-                                    <th>Sueldo</th>
-                                    <th>Rol</th>
-                                    <th>Opciones</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($empleados as $key => $empleado) {
-                                    ?>
-                                    <tr>
-                                        <td><img id="img_user" src="<?=$empleado['imagen']?>"></td>
-                                        <td><?=$empleado['legajo']?></td>
-                                        <td><?=$empleado['first_name'] . ' ' . $empleado['last_name']?></td>
-                                        <td><?=$empleado['address']?></td>
-                                        <td><?=$empleado['email']?></td>
-                                        <td><?=$empleado['salary']?></td>
-                                        <td><?=$empleado['rol']?></td>
-                                        <td>
-                                            <a href="edit_form.php?action=edit&id=<?=$key?>">Editar</a>
-                                            <a href="process.php?action=del&id=<?=$key?>">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                              </table>
+                    <div class="col-6 col-md-8">
+                        <nav>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="d-none d-md-flex col-md-4 col-lg-12 bg-image "></div>
+            <div class="col-md-8 col-lg-12 ">
+                <h4 class="text-center mt-3">
+                    <?php echo isset($_SESSION["usuario"])? "Sesion Iniciada de " . $_COOKIE["usuario"]:"Sesion No iniciada";?>
+                </h4>
+                <div class="login d-flex align-items-center py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9 col-lg-6 mx-auto">
+                                <h3 class="login-heading mb-4">Bienvenido</h3>
+                                <form action="process.php" method="post" name="sesion">
+                                <input type="hidden" name="action" value="sesion">
+                                <div class="form-label-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Email address" autofocus>
+                                    <label for="email">Email address</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    <label for="password">Password</label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                                <div class="text-center">
+                                    <a class="small" href="#">Forgot password?</a></div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 </body>
 </html>
