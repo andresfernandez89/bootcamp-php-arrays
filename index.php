@@ -37,7 +37,12 @@ session_destroy();
             <div class="d-none d-md-flex col-md-4 col-lg-12 bg-image "></div>
             <div class="col-md-8 col-lg-12 ">
                 <h4 class="text-center mt-3">
-                    <?php echo isset($_SESSION["usuario"])? "Sesion Iniciada de " . $_COOKIE["usuario"]:"Sesion No iniciada";?>
+                    <?php if ($_SESSION["usuario"]) {
+                        echo isset($_COOKIE["usuario"])? "Sesion Iniciada de " . $_COOKIE["usuario"]:"";
+                    }else {
+                        echo "Sesion No iniciada";
+                    }
+                    /* echo isset($_SESSION["usuario"])? "Sesion Iniciada de " . $_COOKIE["usuario"]:"Sesion No iniciada"; */?>
                 </h4>
                 <div class="login d-flex align-items-center py-5">
                     <div class="container">
